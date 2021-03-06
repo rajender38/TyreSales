@@ -3,7 +3,7 @@ import 'react-app-polyfill/stable';
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import './App.css';
-import SearchPage from './components/searchPage';
+import CustomerEnquiryLogic from './components/CustomerEnquiryLogic';
 import configureStore from './redux/configureStore';
 import { Provider as ReduxProvider } from 'react-redux';
 import { render } from 'react-dom';
@@ -15,7 +15,7 @@ const store = configureStore();
 render(
   <ReduxProvider store={store}>
     <Header />
-    <SearchPage />
+    <CustomerEnquiryLogic />
   </ReduxProvider>,
   document.getElementById('app')
 );

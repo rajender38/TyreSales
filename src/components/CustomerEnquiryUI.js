@@ -1,11 +1,9 @@
 import React from 'react';
 import TextInput from './common/TextInput';
-import CheckBox from './common/CheckBox';
 import Select from "./common/Select";
 import { Table } from 'react-bootstrap';
 
-export default function Login({ fields, checkboxValue, errors, onValidate, onChange, onClick, result, isStaticWebPages, onClickStatic }) {
-  debugger;
+export default function CustomerEnquiryUI({ fields, options, errors, onValidate, onChange, result }) {
   return (
     <form onSubmit={onValidate}>
       <div style={{ opacity: result.isFetching ? 0.5 : 1 }}>
@@ -23,7 +21,7 @@ export default function Login({ fields, checkboxValue, errors, onValidate, onCha
               <td>
                 <TextInput
                   name='FirstName'
-                  label='FirstName'
+                  label='First Name'
                   value={fields.FirstName}
                   onChange={onChange}
                   error={errors.FirstName}
@@ -32,7 +30,7 @@ export default function Login({ fields, checkboxValue, errors, onValidate, onCha
               <td >
                 <TextInput
                   name='LastName'
-                  label='LastName'
+                  label='Last Name'
                   value={fields.LastName}
                   onChange={onChange}
                   error={errors.LastName}
@@ -49,15 +47,17 @@ export default function Login({ fields, checkboxValue, errors, onValidate, onCha
                   value={fields.Language}
                   onChange={onChange}
                   error={errors.Language}
+                  options={options[0].Language}
                 />
               </td>
               <td >
                 <Select
                   name='CarType'
-                  label='CarType'
+                  label='Car Type'
                   value={fields.CarType}
                   onChange={onChange}
                   error={errors.CarType}
+                  options={options[0].CarType}
                 />
               </td>
               <td></td>
@@ -79,7 +79,7 @@ export default function Login({ fields, checkboxValue, errors, onValidate, onCha
               <td></td>
             </tr>
             <tr><td></td><td colSpan="2">
-              <label htmlFor="lbloutput">{result.output === [] ? result.output : result.output.output}</label>
+              <label htmlFor="lbloutput">{result.output === undefined ? "" : result.output}</label>
             </td><td></td></tr>
           </tbody>
         </Table>

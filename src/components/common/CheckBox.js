@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { Checkbox } from "react-bootstrap";
 
 const CheckBox = ({ name, label, onClick, placeholder, value, isChecked, error }) => {
     return (
         <div >
-
             <div>
                 <label htmlFor={name}>{label}</label>
                 <input
